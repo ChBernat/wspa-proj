@@ -1,0 +1,134 @@
+    <div class="row">
+	<div class="col-xs-6">
+	   <video src="" autoplay></video>
+	</div>
+	<div class="col-xs-6">
+	   <canvas class="photo" height="0" width="0"></canvas>
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-xs-3"></div>
+	<div class="col-xs-8">
+	   <button class="btn btn-default" ng-click="photo.takePhoto();">Take photo</button>
+	</div>
+</div>
+<hr>
+<div class="row">
+<!--    <div class="col-xs-2"></div>-->
+    <div class="col-xs-12">
+        <code>
+            <span class="col-xs-12">this.takePhoto = function(){</span>
+            <span class="col-xs-1"></span>
+            <span class="col-xs-11">
+                var videoEl = document.querySelector("video");
+            </span>
+            <span class="col-xs-1"></span>
+            <span class="col-xs-11">
+                var canvas = document.querySelector('.photo');
+            </span>
+            <span class="col-xs-1"></span>
+            <span class="col-xs-11">
+                if(canvas.offsetWidth === 0){    
+            </span>
+            <span class="col-xs-2"></span>
+            <span class="col-xs-10"> 
+                canvas.height = videoEl.offsetHeight;
+            </span>
+            <span class="col-xs-2"></span>
+            <span class="col-xs-10">
+                canvas.width = videoEl.offsetWidth;
+            </span>
+            <span class="col-xs-1"></span>
+            <span class="col-xs-11">
+                }
+            </span>
+            <span class="col-xs-1"></span>
+            <span class="col-xs-11">
+                var context = canvas.getContext('2d');
+            </span>
+            <span class="col-xs-1"></span>
+            <span class="col-xs-11">
+               context.drawImage(videoEl, 0, 0, canvas.width, canvas.height); 
+            </span>
+            <span class="col-xs-12">
+                }
+            </span>
+        </code>
+    </div>
+</div>
+<hr>
+<div class="row">
+ <table class="table table-striped">
+    <tr>
+        <td>
+            <code>
+                var canvas = document.querySelector('.photo');
+            </code>
+        </td>
+        <td>
+            <p>
+                Pochwycenie elementu canvas i przypisanie go do zmiennej.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+              if(canvas.offsetWidth === 0){  
+            </code>
+        </td>
+        <td>
+            Warunek, który zapewnia, że przypisanie wysokości i szerokości naszemu elementowi zawierającemu zdjęcia zostanie wykonane tylko raz.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                canvas.width = videoEl.offsetWidth;
+            </code>
+        </td>
+        <td>
+            <p>
+                Określenie szerokości naszego elementu canvas. W tym wypadku będzie ona równa szerokości elementu video.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                 canvas.height = videoEl.offsetHeight;
+            </code>
+        </td>
+        <td>
+            <p>
+                Analogicznie do przykładu poprzedniego - ustawiamy wysokość.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                var context = canvas.getContext('2d');
+            </code>
+        </td>
+        <td>
+            <p>
+                Zwraca i przypisuje do zmienenj dość skomplikowany w zrozumieniu obiekt. Przekazanie wartości "2d" prowadzi do stworzenia obiektu o nazwie 'CanvasRenderingContext2D'.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                context.drawImage(videoEl, 0, 0, canvas.width, canvas.height); 
+            </code>
+        </td>
+        <td>
+            <p>
+                To metoda na wspomnianym wyżej obiekcie, przyjmuje następujące parametry: źródło, z którego będzie czerpać obraz, koordynat X, koordynat Y, szerokość oraz wysokość. Koordynaty określają miejsca względem lewego, górnego rogu zdjęcia-źrodła.
+            </p>
+        </td>
+    </tr>
+ </table>
+</div>

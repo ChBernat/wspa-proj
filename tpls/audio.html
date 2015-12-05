@@ -1,0 +1,85 @@
+<div class="row">
+   <div class="col-xs-12">
+    <div class="text-center">
+        <button class="btn btn-default btn-lg" ng-click="audio.startMicrophone();">
+            Włącz przechwytywanie dźwięku
+        </button>
+        <button class="btn btn-default btn-lg" ng-click="audio.stopMicrophone();">
+            Wyłącz przechwytywanie dźwięku
+        </button>
+    </div>
+    </div>
+</div>
+  <hr>
+   <table class="table table-striped">
+   <tr>
+       <td>
+           <code>
+                navigator.getUserMedia({audio: true}, function(stream){
+           </code>
+       </td>
+       <td>
+           Wszystko co zostało niżej opisane zawiera się, oczywiście, w znanym już nam wywołaniu metody getUserMedia. Tym razem przekazujemy jej obiekt, który odpowiada za obsługę audio.
+       </td>
+   </tr>
+    <tr>
+        <td>
+            <code>
+                var context = new AudioContext();
+            </code>
+        </td>
+        <td>
+            <p>
+                Stworzenie nowej instancji obiektu. AudioContext to tak naprawdę jedynie interfejs, który przynosi nam ze sobą szeroki wachlarz narzędzi do obsługi dźwięku pochodzącego z naszego mikrofonu.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                var microphone = context.createMediaStreamSource(stream);
+            </code>
+        </td>
+        <td>
+            Przypisanie do zmiennej źródła, z którego będzie pochodził dźwięk; W tym wypadku, w uproszczeniu, będzie to po prostu nasz mikrofon.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                var filter = context.createBiquadFilter();
+            </code>
+        </td>
+        <td>
+            <p>
+                Przypisanie odpowiedniego filtru do zmiennej; W tym wypadku metoda stworzy nam tzw. 'BiquadFilterNode'. To kolejny interfejs, który tym razem może być nam pomocny podczas filtracji naszego nagrania. Możemy określać dzięki niemu takie rzeczy jak choćby częstotliwość nagrania czy typ filtrującego algorytmu. Pojawił się w naszym kodzie, jednak, tylko dlatego, że jest wymagany dalej.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                microphone.connect(filter);
+            </code>
+        </td>
+        <td>
+            <p>
+               Działanie tej funkcji możemy sobie wyobrazić jako podłączenie faktycznego mikrofonu do naszej aplikacji, gdyż w skrócie właśnie tak to działa. 
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>
+                filter.connect(context.destination);
+            </code>
+        </td>
+        <td>
+            <p>
+                Tak samo, jak poprzednia linijka - connect pochodzi z obiektu-rodzica naszego naszego node'a. Określając to bardziej praktycznymi słowami - metoda connect służy do łączenia odpowiednich sobie node'ów.
+            </p>
+        </td>
+    </tr>
+</table>
+
+

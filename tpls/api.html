@@ -1,0 +1,58 @@
+
+<div class="row">
+	<div class="col-xs-4"></div>
+	<video src="" class="vid-tag" autoplay></video>
+</div>
+<div class="row">
+	<div class="col-xs-3"></div>
+	<div class="col-xs-8">
+	<p>Po wielu próbach użycia między innymi <code>&lt;input type="file"&gt;</code> oraz <code>&lt;device type="media"&gt;</code>, które były wprowadzane przez najpierw przez DAP, a potem (<code>input</code>) przez Operę, W3C doszło do bardzo trafnego wniosku - należy ustandaryzować przechwytywanie video za pomocą HTMLa i JavaScriptu. Droga do obecnego stanu API, była, więc dość długa i wyboista, ale koniec końców znaleźliśmy się w porządanym przez programistów javascript miejscu.</p>
+	</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-xs-12">Nie pokażę Wam użytego kodu w całości, bo w zależności od używanej przez Was przeglądarki będzie on wyglądał (delikatnie) inaczej, jak? Tą kwestię pozostawiam w Waszych rękach i zapytaniach do google'a.</div>
+<div class="col-xs-4"></div><div class="col-xs-6"><code>
+        <span class="col-xs-12">navigator.getUserMedia(videoObj, function(stream) { </span>
+			<span class="col-xs-1"></span><span class="col-xs-11">videoEl.src = stream; </span>
+		<span class="col-xs-1"></span><span class="col-xs-11">	videoEl.play(); </span>
+		</span><span class="col-xs-12">}, errBack); </span></code></div>
+</div>
+<div class="row">
+   <hr>
+    <div class="col-xs-12">
+        <p>Chwila, chwila! Co to w ogóle wszystko oznacza? Fakt, w tych paru linijkach dzieje się naprawdę wiele i wypadałoby to jakoś klarownie wyjaśnić! Rozbijmy, więc, cały kod na poszczególne linie.</p>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-5">
+    <code>
+        navigator.getUserMedia(videoObj, function(stream) {
+    </code>
+</div>
+    <div class="col-xs-6"><p>To tak zwane wywołanie metody na obiekcie, która, jako argument, przyjmuje obiekt i funkcje anonimową (czyli po prostu funkcję bez nazwy!) Wszystko zaczyna się właśnie w tym momencie.</p></div>
+</div>
+<div class="row">
+    <div class="col-xs-4"><code>videoEl.src = stream;</div></code><div class="col-xs-8">Przypisanie wartości do atrybutu <code>source</code>, który znajduje się na obiekcie video, tj. obiekcie DOM.</div>
+        <div class="col-xs-4"><code>videoEl.play();</div></code><div class="col-xs-8">Wywołanie metody <code>play()</code>, która istnieje na obiekcie video.</div>
+    <div class="col-xs-4"></div><div class="col-xs-8"></div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10">
+        <h4>Obiekt wymieniony na górze został przypisany do zmiennej videoEl za pomocą następującej linijki kodu:</h4>
+    </div>
+        <div class="col-xs-4"><code>var videoEl = document.querySelector("video"),</code></div>
+        <div class="col-xs-8">
+            <p>Złapanie elementu i przypisanie go (jako obiektu DOM) do zmiennej.</p>
+        </div>
+	    <div class="col-xs-1"></div><div class="col-xs-3"><code>videoObj = { "video": true };</code></div>
+	    <div class="col-xs-8">
+	        <p>
+	            Stworzenie i przypisanie obiektu, który będzie odpowiadał za ustawienia naszego elementu video.
+	        </p>
+	    </div>
+</div>
+

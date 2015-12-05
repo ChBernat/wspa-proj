@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="ngApp">
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<div class="btn-group" ng-controller="appCtrl as start">
+			<a href="" class="btn btn-default" ng-click="start.closeCam();start.startCam();">Początek</a>
+			<a href="#/js-api" class="btn btn-default" ng-click="start.closeCam();start.startCam();">Uruchomienie kamery</a>
+			<a href="#/video-attrs" class="btn btn-default" ng-click="start.closeCam();start.startCam();">Atrybuty video</a>
+			<a href="#/photo" ng-click="start.closeCam();start.startCam();" class="btn btn-default">Zdjęcia!</a>
+			<a href="#/audio" ng-click="start.closeCam();" class="btn btn-default">
+			    Audio
+			</a>
+			<a href="#/cam-with-audio" class="btn btn-default">
+			    Nagrywanie z dźwiękiem
+			</a>
+			<a href="#/filters" class="btn btn-default">
+			    Filtry
+			</a>
+			 <a href="#/end" class="btn btn-default">
+			     Podsumowanie
+			 </a>
+		</div>
+	</div>
+	<div class="container">
+		<div class="panel-body">
+			<div ui-view></div>
+		</div>
+	</div>
+</div>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="js/ngApp.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+.vid-tag {
+	width: 40%;
+	height: 70%;
+	background-color: black;
+	border: 10px solid grey;
+}
+
+.photo {
+    background-color: black;
+}
+
+.blur {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+.brightness{
+    -webkit-filter: brightness(5);
+    -moz-filter: brightness(5);
+    -o-filter: brightness(5);
+    -ms-filter: brightness(5);
+    filter: brightness(5);
+}
+.contrast{
+    -webkit-filter: contrast(200%);
+    filter: contrast(200%);
+}
+.drop-shadow{ 
+    -webkit-filter: drop-shadow(16px 16px 20px blue);
+    filter: drop-shadow(16px 16px 20px blue);
+}
+.grayscale{
+    -webkit-filter: grayscale(50%);
+    filter: grayscale(50%);
+}
+.hue-rotate{
+   -webkit-filter: hue-rotate(90deg);
+    filter: hue-rotate(90deg);
+}
+.hue-rotate2{
+   -webkit-filter: hue-rotate(270deg);
+    filter: hue-rotate(270deg);
+}
+.hue-rotate3{
+   -webkit-filter: hue-rotate(180deg);
+    filter: hue-rotate(180deg);
+}
+.invert{
+    -webkit-filter: invert(75%);
+    filter: invert(75%);
+}
+.opacity{
+    -webkit-filter: opacity(25%);
+    filter: opacity(25%);
+}
+.saturate{
+    -webkit-filter: saturate(0.3);
+    filter: saturate(0.3);
+}
+.sepia{
+    -webkit-filter: sepia(60%);
+    filter: sepia(1);
+}
